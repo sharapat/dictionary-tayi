@@ -14,8 +14,8 @@ class DatabaseQueryRepository(
     private val gsonHelper: GsonHelper
 ) {
 
-    fun initializeDatabaseIfAppIsFirstLaunched() : Single<String> {
-        return Single.create<String> { emitter ->
+    fun initializeDatabaseIfAppIsFirstLaunched() : Single<String> =
+        Single.create { emitter ->
             if (sharedPrefsHelper.isFirstLaunch()) {
                 try {
                     val models: List<LugatEntity> = gsonHelper.getDictionaryFromLocalAssets()
@@ -28,5 +28,4 @@ class DatabaseQueryRepository(
                 emitter.onSuccess(Constants.success)
             }
         }
-    }
 }

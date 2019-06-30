@@ -28,7 +28,7 @@ data class LugatEntity (
     var wordUzbLat: String,
 
     @ColumnInfo(name = "last_accessed")
-    var lastAccessed: Date,
+    var lastAccessed: Long,
 
     @ColumnInfo(name = "fovorite")
     var isFavorite: Boolean,

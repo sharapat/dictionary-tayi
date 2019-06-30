@@ -1,13 +1,16 @@
 package uz.tayi.lugat.helper
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import uz.tayi.lugat.data.LugatEntity
-import java.io.IOException
-import java.io.InputStream
+import java.io.*
 import java.lang.reflect.Type
 import java.nio.charset.Charset
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
+
 
 class GsonHelper(private val context: Context, private val fileName: String) {
 
@@ -15,8 +18,8 @@ class GsonHelper(private val context: Context, private val fileName: String) {
         val json : String
         json = try {
             val inputStream: InputStream = context.assets.open(fileName)
-            val size: Int = inputStream.available()
-            val buffer: ByteArray = ByteArray(size)
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
             inputStream.read(buffer)
             inputStream.close()
             String(buffer, Charset.forName("UTF-8"))

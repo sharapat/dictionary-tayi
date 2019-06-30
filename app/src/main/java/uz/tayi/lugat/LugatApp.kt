@@ -10,6 +10,6 @@ import uz.tayi.lugat.di.viewModelModule
 class LugatApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, listOf(dataModule, repositoryModule, helperModule, viewModelModule))
+        startKoin(this, listOf(dataModule, helperModule, repositoryModule, viewModelModule))
     }
 }

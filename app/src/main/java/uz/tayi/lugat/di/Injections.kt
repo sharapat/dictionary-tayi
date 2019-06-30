@@ -1,6 +1,5 @@
 package uz.tayi.lugat.di
 
-import android.content.Context
 import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -16,13 +15,14 @@ import uz.tayi.lugat.repository.DatabaseQueryRepository
 import uz.tayi.lugat.ui.splash.SplashViewModel
 
 private const val databaseName = "dictionary_database"
-private const val databaseFileName = "lugat.json"
+private const val databaseFileName = "lugat.json.zip"
 
 val dataModule = module {
-        single { provideDatabase(androidContext()) }
+        single {
+                Room.databaseBuilder(get(), LugatDatabase::class.java, databaseName).build()
+        }
         single { provideGson() }
         single { provideDao(get()) }
-        single { provideSharedPreferencesHelper(androidContext()) }
 }
 
 val helperModule = module {
@@ -42,11 +42,5 @@ val viewModelModule = module {
 fun provideGson() : Gson =
         GsonBuilder().setLenient().create()
 
-fun provideDatabase(context: Context) : LugatDatabase =
-        Room.databaseBuilder(context, LugatDatabase::class.java, databaseName).build()
-
 fun provideDao(lugatDatabase: LugatDatabase) : LugatDao =
         lugatDatabase.lugatDao()
-
-fun provideSharedPreferencesHelper(context: Context) =
-        SharedPrefsHelper(context)
