@@ -4,25 +4,27 @@ import android.content.Context
 import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import uz.tayi.lugat.data.LugatEntity
+import uz.tayi.lugat.data.local.LugatEntity
 import java.io.*
 import java.lang.reflect.Type
 import java.nio.charset.Charset
-import java.util.zip.ZipEntry
-import java.util.zip.ZipInputStream
 
-
-class GsonHelper(private val context: Context, private val fileName: String) {
+class GsonHelper(private val context: Context) {
 
     private fun loadJsonFromAsset() : String {
-        val json : String
+        var json = ""
         json = try {
-            val inputStream: InputStream = context.assets.open(fileName)
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            String(buffer, Charset.forName("UTF-8"))
+            val fileNames = context.assets.list("jsons")
+            fileNames?.forEachIndexed { index, s ->
+                val inputStream: InputStream = context.assets.open("jsons/db_${index+1}.json")
+                val size = inputStream.available()
+                val buffer = ByteArray(size)
+                inputStream.read(buffer)
+                inputStream.close()
+                json += String(buffer, Charset.forName("UTF-8"))
+            }
+            Log.d("resultat", json)
+            json
         } catch (ex: IOException) {
             ex.printStackTrace()
             ""

@@ -13,5 +13,18 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="loading_text">Malumotlar yuklanmoqda. Iltimos, kutib turing…</string>
+    <string name="search_hint">Qidirish</string>
+    <string name="empty_list_text">Ro\'yxat bo\'sh</string>
+    <string name="dictionary">Lug\'at</string>
+    <string name="favourites">Tanlanganlar</string>
+    <string name="share">Ulashish</string>
+
+    <string-array name="language_spinner" translatable="false">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Ўзбекча</item>
+        <item>O\‘zbekcha</item>
+    </string-array>
 
 </resources>

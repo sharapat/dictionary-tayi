@@ -8,12 +8,14 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import androidx.fragment.app.Fragment
 import uz.tayi.lugat.R
+import uz.tayi.lugat.ui.base.BaseActivity
+import uz.tayi.lugat.ui.dictionary.DictionaryFragment
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        changeFragment(R.id.container, DictionaryFragment(), DictionaryFragment::class.java.name)
     }
 
     override fun onBackPressed() {
@@ -67,9 +71,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        var fragment: Fragment = DictionaryFragment()
         when (item.itemId) {
             R.id.nav_home -> {
-                // Handle the camera action
+                fragment = DictionaryFragment()
             }
             R.id.nav_gallery -> {
 
@@ -87,8 +92,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
         }
+        changeFragment(R.id.container, fragment, fragment::class.java.name)
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }

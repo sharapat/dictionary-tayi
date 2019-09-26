@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="186dp">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/translationToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <TextView
+                    android:id="@+id/tvWord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/translationToolbar"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginEnd="52dp"
+                    android:textSize="28sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textColor="@android:color/white"
+                    tools:text="@string/dictionary"/>
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:src="@drawable/ic_book"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/tvTranslation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/standard_margin"
+                android:text="@string/dictionary"
+                android:textSize="@dimen/standard_text_size"
+                android:textColor="@color/color_primary_dark"/>
+
+    </ScrollView>
+
+</LinearLayout>
