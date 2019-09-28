@@ -36,4 +36,32 @@ data class LugatEntity (
     var word: String? = "",
 
     var translation: String? = ""
-)
+) {
+    companion object {
+        const val LANGUAGE_ENG = 0
+        const val LANGUAGE_RUS = 1
+        const val LANGUAGE_UZB_CYR = 2
+        const val LANGUAGE_UZB_LAT = 3
+    }
+
+    fun setLanguagePair(wordId: Int, translationId: Int) {
+        when (wordId) {
+            LANGUAGE_ENG -> this.word = wordEng
+            LANGUAGE_RUS -> this.word = wordRus
+            LANGUAGE_UZB_CYR -> this.word = wordUzbCyr
+            LANGUAGE_UZB_LAT -> this.word = wordUzbLat
+            else -> this.word = wordEng
+        }
+        when (translationId) {
+            LANGUAGE_ENG -> this.translation = wordEng
+            LANGUAGE_RUS -> this.translation = wordRus
+            LANGUAGE_UZB_CYR -> this.translation = wordUzbCyr
+            LANGUAGE_UZB_LAT -> this.translation = wordUzbLat
+            else -> this.translation = wordRus
+        }
+    }
+
+    fun getMessageForShare() : String {
+        return "$wordEng\n\n$wordRus\n\n$wordUzbCyr\n\n$wordUzbLat}"
+    }
+}

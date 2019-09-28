@@ -1,7 +1,7 @@
-package uz.tayi.lugat.ui.dictionary.list
+package uz.tayi.lugat.ui.dictionary.suggestion
 
 import uz.tayi.lugat.data.local.LugatEntity
 
-interface DictionaryItemClickListener {
+interface SuggestionItemClickListener {
     fun onItemClicked(model: LugatEntity)
 }

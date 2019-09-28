@@ -13,12 +13,13 @@ import uz.tayi.lugat.helper.SharedPrefsHelper
 import uz.tayi.lugat.repository.DatabaseQueryRepository
 import uz.tayi.lugat.ui.dictionary.DictionaryViewModel
 import uz.tayi.lugat.ui.splash.SplashPresenter
+import uz.tayi.lugat.ui.translation.TranslationViewModel
 
 private const val databaseName = "dictionary_database"
 
 val dataModule = module {
         single {
-                Room.databaseBuilder(get(), LugatDatabase::class.java, databaseName).build()
+                Room.databaseBuilder(get(), LugatDatabase::class.java, databaseName).allowMainThreadQueries().build()
         }
         single { provideGson() }
         single { provideDao(get()) }
@@ -36,6 +37,7 @@ val repositoryModule = module {
 val viewModelModule = module {
         viewModel { SplashPresenter(get(), get()) }
         viewModel { DictionaryViewModel(get()) }
+        viewModel { TranslationViewModel(get()) }
 }
 
 fun provideGson() : Gson =

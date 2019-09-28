@@ -19,6 +19,7 @@
     <string name="dictionary">Lug\'at</string>
     <string name="favourites">Tanlanganlar</string>
     <string name="share">Ulashish</string>
+    <string name="share_translation">So\'zni ulashish</string>
 
     <string-array name="language_spinner" translatable="false">
         <item>English</item>

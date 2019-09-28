@@ -10,7 +10,7 @@ import uz.tayi.lugat.ui.base.BaseViewModel
 
 class DictionaryViewModel(private val databaseQueryRepository: DatabaseQueryRepository) : BaseViewModel() {
 
-    val dictionaryList: MutableLiveData<Resource<List<LugatEntity>>> = MutableLiveData()
+    val suggestionList: MutableLiveData<Resource<List<LugatEntity>>> = MutableLiveData()
     private var models: List<LugatEntity> = arrayListOf()
 
     fun getDictionaries(wordId: Int, translationId: Int) {
@@ -19,28 +19,33 @@ class DictionaryViewModel(private val databaseQueryRepository: DatabaseQueryRepo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
-                    models = result
-                    dictionaryList.value = Resource.success(setWordAndTranslation(wordId, translationId))
+                    result.forEach {
+                        it.setLanguagePair(wordId, translationId)
+                    }
+                    suggestionList.value = Resource.success(result)
                 },{
-                    dictionaryList.value = Resource.error(it.localizedMessage!!)
+                    suggestionList.value = Resource.error(it.localizedMessage!!)
                 })
         )
     }
 
-    fun setWordAndTranslation(wordId: Int, translationId: Int) : List<LugatEntity> {
-        when(wordId) {
-            1 -> models.forEach { it.word = it.wordEng }
-            2 -> models.forEach { it.word = it.wordRus }
-            3 -> models.forEach { it.word = it.wordUzbCyr }
-            4 -> models.forEach { it.word = it.wordUzbLat }
-        }
-        when(translationId) {
-            1 -> models.forEach { it.translation = it.wordEng }
-            2 -> models.forEach { it.translation = it.wordRus }
-            3 -> models.forEach { it.translation = it.wordUzbCyr }
-            4 -> models.forEach { it.translation = it.wordUzbLat }
-        }
-        return models
+    fun searchWordByQuery(subWord: String, wordId: Int, translationId: Int) {
+        compositeDisposable.add(
+            databaseQueryRepository.searchWord(subWord, wordId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe {
+                    suggestionList.value = Resource.loading()
+                }
+                .subscribe({
+                    it.forEach { lugatEntity ->
+                        lugatEntity.setLanguagePair(wordId, translationId)
+                    }
+                    suggestionList.value = Resource.success(it)
+                },{
+                    suggestionList.value = Resource.error(it.localizedMessage!!)
+                })
+        )
     }
 
     override fun onCleared() {

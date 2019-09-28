@@ -26,5 +26,35 @@ class DatabaseQueryRepository (
     fun getAllWords(): Single<List<LugatEntity>> =
         dao.getAllWords()
 
+    fun searchWord(subWord: String, wordId: Int): Single<List<LugatEntity>> {
+        return when(wordId) {
+            0 -> dao.searchByEng("%$subWord%")
+            1 -> dao.searchByRus("%$subWord%")
+            2 -> dao.searchByUzbCyr("%$subWord%")
+            3 -> dao.searchByUzbLat("%$subWord%")
+            else -> dao.searchByEng("%$subWord%")
+        }
+    }
 
+    fun updateData(models: List<LugatEntity>) : Single<List<LugatEntity>> {
+        return Single.create<List<LugatEntity>> { emitter ->
+            try {
+                dao.update(models)
+            } catch (ex: Exception) {
+                emitter.onError(ex)
+            }
+            dao.getAllWords()
+        }
+    }
+
+    fun updateData(model: LugatEntity) : Single<List<LugatEntity>> {
+        return Single.create<List<LugatEntity>> { emitter ->
+            try {
+                dao.update(model)
+                dao.getAllWords()
+            } catch (ex: Exception) {
+                emitter.onError(ex)
+            }
+        }
+    }
 }
