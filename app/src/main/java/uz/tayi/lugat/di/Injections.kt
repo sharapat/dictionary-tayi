@@ -12,6 +12,8 @@ import uz.tayi.lugat.helper.GsonHelper
 import uz.tayi.lugat.helper.SharedPrefsHelper
 import uz.tayi.lugat.repository.DatabaseQueryRepository
 import uz.tayi.lugat.ui.dictionary.DictionaryViewModel
+import uz.tayi.lugat.ui.favorite.FavoriteViewHolder
+import uz.tayi.lugat.ui.favorite.FavoriteViewModel
 import uz.tayi.lugat.ui.splash.SplashPresenter
 import uz.tayi.lugat.ui.translation.TranslationViewModel
 
@@ -38,6 +40,7 @@ val viewModelModule = module {
         viewModel { SplashPresenter(get(), get()) }
         viewModel { DictionaryViewModel(get()) }
         viewModel { TranslationViewModel(get()) }
+        viewModel { FavoriteViewModel(get()) }
 }
 
 fun provideGson() : Gson =

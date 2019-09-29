@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import uz.tayi.lugat.R
 import uz.tayi.lugat.ui.base.BaseActivity
 import uz.tayi.lugat.ui.dictionary.DictionaryFragment
+import uz.tayi.lugat.ui.favorite.FavoriteFragment
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,22 +53,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         // Handle navigation view item clicks here.
         var fragment: Fragment = DictionaryFragment()
         when (item.itemId) {
-            R.id.nav_home -> {
+            R.id.nav_dictionary -> {
                 fragment = DictionaryFragment()
             }
-            R.id.nav_gallery -> {
+            R.id.nav_favorite -> {
+                fragment = FavoriteFragment()
+            }
+            R.id.nav_history -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_settings -> {
 
             }
-            R.id.nav_tools -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
+            R.id.nav_about -> {
 
             }
         }

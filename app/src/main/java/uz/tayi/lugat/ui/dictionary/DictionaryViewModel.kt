@@ -22,6 +22,7 @@ class DictionaryViewModel(private val databaseQueryRepository: DatabaseQueryRepo
                     result.forEach {
                         it.setLanguagePair(wordId, translationId)
                     }
+                    databaseQueryRepository.updateData(result)
                     suggestionList.value = Resource.success(result)
                 },{
                     suggestionList.value = Resource.error(it.localizedMessage!!)

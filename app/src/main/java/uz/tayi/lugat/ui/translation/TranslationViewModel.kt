@@ -2,9 +2,10 @@ package uz.tayi.lugat.ui.translation
 
 import uz.tayi.lugat.data.local.LugatDao
 import uz.tayi.lugat.data.local.LugatEntity
+import uz.tayi.lugat.repository.DatabaseQueryRepository
 import uz.tayi.lugat.ui.base.BaseViewModel
 
-class TranslationViewModel(val dao: LugatDao) : BaseViewModel() {
+class TranslationViewModel(val databaseQueryRepository: DatabaseQueryRepository) : BaseViewModel() {
 
     lateinit var model: LugatEntity
     lateinit var view: TranslationView
@@ -14,7 +15,7 @@ class TranslationViewModel(val dao: LugatDao) : BaseViewModel() {
     }
 
     fun setModel(modelId: Int) {
-        model = dao.getModelById(modelId)
+        model = databaseQueryRepository.getModelById(modelId)
     }
 
     fun shareTranslation() {
@@ -26,10 +27,9 @@ class TranslationViewModel(val dao: LugatDao) : BaseViewModel() {
     }
 
     fun toggleFavorite() {
-        var isFavorite = false
-        if (model.isFavorite != null && !model.isFavorite!!) isFavorite = true
+        val isFavorite = model.isFavorite == null || !model.isFavorite!!
         model.isFavorite = isFavorite
-        dao.update(model)
+        databaseQueryRepository.updateData(model)
         view.showFavorite(isFavorite)
     }
 }

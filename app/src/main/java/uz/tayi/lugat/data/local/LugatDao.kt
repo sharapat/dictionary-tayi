@@ -32,4 +32,7 @@ interface LugatDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(model: LugatEntity)
+
+    @Query("SELECT * FROM dictionary WHERE favorite = 1")
+    fun getFavorites(): Single<List<LugatEntity>>
 }

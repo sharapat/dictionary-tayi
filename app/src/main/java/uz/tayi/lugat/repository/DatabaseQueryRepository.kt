@@ -36,25 +36,22 @@ class DatabaseQueryRepository (
         }
     }
 
-    fun updateData(models: List<LugatEntity>) : Single<List<LugatEntity>> {
-        return Single.create<List<LugatEntity>> { emitter ->
-            try {
-                dao.update(models)
-            } catch (ex: Exception) {
-                emitter.onError(ex)
-            }
-            dao.getAllWords()
+    fun updateData(model: LugatEntity) {
+        dao.update(model)
+    }
+
+    fun updateData(models: List<LugatEntity>) : Single<String> {
+        return Single.create<String> { emitter ->
+            dao.update(models)
+            emitter.onSuccess(Constants.success)
         }
     }
 
-    fun updateData(model: LugatEntity) : Single<List<LugatEntity>> {
-        return Single.create<List<LugatEntity>> { emitter ->
-            try {
-                dao.update(model)
-                dao.getAllWords()
-            } catch (ex: Exception) {
-                emitter.onError(ex)
-            }
-        }
+    fun getFavorites() : Single<List<LugatEntity>> {
+        return dao.getFavorites()
+    }
+
+    fun getModelById(id: Int) : LugatEntity {
+        return dao.getModelById(id)
     }
 }

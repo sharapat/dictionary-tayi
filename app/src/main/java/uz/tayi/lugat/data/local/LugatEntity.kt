@@ -30,7 +30,7 @@ data class LugatEntity (
     @ColumnInfo(name = "last_accessed")
     var lastAccessed: Long? = 0,
 
-    @ColumnInfo(name = "fovorite")
+    @ColumnInfo(name = "favorite")
     var isFavorite: Boolean? = false,
 
     var word: String? = "",
