@@ -11,7 +11,6 @@ import uz.tayi.lugat.ui.base.BaseViewModel
 class DictionaryViewModel(private val databaseQueryRepository: DatabaseQueryRepository) : BaseViewModel() {
 
     val suggestionList: MutableLiveData<Resource<List<LugatEntity>>> = MutableLiveData()
-    private var models: List<LugatEntity> = arrayListOf()
 
     fun getDictionaries(wordId: Int, translationId: Int) {
         compositeDisposable.add(
@@ -22,7 +21,6 @@ class DictionaryViewModel(private val databaseQueryRepository: DatabaseQueryRepo
                     result.forEach {
                         it.setLanguagePair(wordId, translationId)
                     }
-                    databaseQueryRepository.updateData(result)
                     suggestionList.value = Resource.success(result)
                 },{
                     suggestionList.value = Resource.error(it.localizedMessage!!)

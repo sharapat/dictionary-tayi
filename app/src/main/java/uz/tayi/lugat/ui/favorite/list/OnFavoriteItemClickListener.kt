@@ -1,4 +1,4 @@
-package uz.tayi.lugat.ui.favorite
+package uz.tayi.lugat.ui.favorite.list
 
 import uz.tayi.lugat.data.local.LugatEntity
 

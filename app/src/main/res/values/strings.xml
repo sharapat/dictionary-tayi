@@ -1,32 +1,47 @@
 <resources>
-    <string name="app_name">Lug‘at</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="nav_header_title">Toshkent avtomovil yo\'llarini\nloyihalash, qurish va\nekspluatatsiya institutini\n texnik lug\'ati</string>
-    <string name="loading_text">Malumotlar yuklanmoqda. Iltimos, kutib turing…</string>
-    <string name="search_hint">Qidirish</string>
-    <string name="empty_list_text">Ro\'yxat bo\'sh</string>
-    <string name="dictionary">Lug\'at</string>
-    <string name="favourites">Tanlanganlar</string>
-    <string name="share">Ulashish</string>
-    <string name="share_translation">So\'zni ulashish</string>
-    <string name="menu_dictionary">Lug\'at</string>
-    <string name="menu_favorite">Tanlanganlar</string>
-    <string name="menu_history">Tarix</string>
-    <string name="menu_settings">Sozlamalar</string>
-    <string name="menu_about">Dastur haqida</string>
-    <string name="empty_favorite">Tanlanganlar yo\'q</string>
-    <string name="empty_histories_text">Siz hali hech bir so\'zni tarjimasini ko\'rmadingiz</string>
-
-    <string-array name="language_spinner" translatable="false">
+    <string name="app_name" translatable="false">Lug‘at</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="pref_language_uzbek_cyr" translatable="false">ўз</string>
+    <string name="pref_language_rus" translatable="false">ru</string>
+    <string name="pref_language_default" translatable="false">@string/pref_language_uzbek_cyr</string>
+    <string name="pref_language_key" translatable="false">language_key</string>
+    <string name="pref_language_english" translatable="false">eng</string>
+    <string name="pref_language_uzbek_lat" translatable="false">uz</string>
+    <string-array name="pref_language_options" translatable="false">
         <item>English</item>
         <item>Русский</item>
         <item>Ўзбекча</item>
         <item>O\‘zbekcha</item>
     </string-array>
+    <string-array name="pref_alphabet_values" translatable="false">
+        <item>@string/pref_language_english</item>
+        <item>@string/pref_language_rus</item>
+        <item>@string/pref_language_uzbek_cyr</item>
+        <item>@string/pref_language_uzbek_lat</item>
+    </string-array>
+
+    <string name="pref_language_label">Тил</string>
+    <string name="nav_header_title">Тошкент автомобиль йўлларини\nлойиҳалаш, қуриш ва/nэксплуатация институтини/nтехник луғати</string>
+    <string name="loading_text">Маълумотлар юкланмоқда. Илтимос кутиб туринг…</string>
+    <string name="search_hint">Излаш</string>
+    <string name="empty_list_text">Рўйҳат бўш</string>
+    <string name="dictionary">Луғат</string>
+    <string name="favourites">Танланганлар</string>
+    <string name="share">Улашиш</string>
+    <string name="share_translation">Сўзни улашиш</string>
+    <string name="menu_dictionary">Луғат</string>
+    <string name="menu_favorite">Танланганлар</string>
+    <string name="menu_history">Тарих</string>
+    <string name="menu_settings">Созламалар</string>
+    <string name="menu_about">Дастур ҳақида</string>
+    <string name="empty_favorite">Танланганлар йўқ</string>
+    <string name="empty_histories_text">Сиз ҳали ҳеч бир сўзни таржимасини кўрмадингиз</string>
+    <string name="settings">Созламалар</string>
+
+
 
 </resources>

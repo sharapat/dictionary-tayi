@@ -1,4 +1,4 @@
-package uz.tayi.lugat.ui.favorite
+package uz.tayi.lugat.ui.favorite.list
 
 import android.view.View
 import android.widget.ImageView

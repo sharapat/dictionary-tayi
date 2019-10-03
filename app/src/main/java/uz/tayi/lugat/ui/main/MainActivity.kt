@@ -1,5 +1,6 @@
 package uz.tayi.lugat.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -15,9 +16,10 @@ import uz.tayi.lugat.R
 import uz.tayi.lugat.ui.base.BaseActivity
 import uz.tayi.lugat.ui.dictionary.DictionaryFragment
 import uz.tayi.lugat.ui.favorite.FavoriteFragment
+import uz.tayi.lugat.ui.history.HistoryFragment
+import uz.tayi.lugat.ui.settings.SettingsActivity
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +62,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 fragment = FavoriteFragment()
             }
             R.id.nav_history -> {
-
+                fragment = HistoryFragment()
             }
             R.id.nav_settings -> {
-
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                finish()
             }
             R.id.nav_about -> {
 

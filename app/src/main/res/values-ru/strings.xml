@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_language_label">Язык</string>
+    <string name="nav_header_title">Техническая словарь Ташкентского автомобильно-дорожного института</string>
+    <string name="loading_text">Загружается. Пожалуйста, подаждите…</string>
+    <string name="search_hint">Поиск</string>
+    <string name="empty_list_text">Список пуст</string>
+    <string name="dictionary">Словарь</string>
+    <string name="favourites">Избранные</string>
+    <string name="share">Поделиться</string>
+    <string name="share_translation">Поделиться переводом</string>
+    <string name="menu_dictionary">Словарь</string>
+    <string name="menu_favorite">Избранные</string>
+    <string name="menu_history">История</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_about">О программе</string>
+    <string name="empty_favorite">Нет избранных</string>
+    <string name="empty_histories_text">Вы еще не посмотрели ни одного перевода</string>
+    <string name="settings">Настройки</string>
+</resources>

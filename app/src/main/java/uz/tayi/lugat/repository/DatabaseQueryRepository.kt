@@ -54,4 +54,8 @@ class DatabaseQueryRepository (
     fun getModelById(id: Int) : LugatEntity {
         return dao.getModelById(id)
     }
+
+    fun getHistories(): Single<List<LugatEntity>> {
+        return dao.getHistories()
+    }
 }

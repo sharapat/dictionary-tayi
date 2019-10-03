@@ -35,4 +35,7 @@ interface LugatDao {
 
     @Query("SELECT * FROM dictionary WHERE favorite = 1")
     fun getFavorites(): Single<List<LugatEntity>>
+
+    @Query("SELECT * FROM dictionary WHERE last_accessed > 0 ORDER BY last_accessed DESC LIMIT 20")
+    fun getHistories(): Single<List<LugatEntity>>
 }

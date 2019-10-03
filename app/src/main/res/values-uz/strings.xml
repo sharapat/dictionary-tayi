@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_language_label">Til</string>
+    <string name="nav_header_title">Toshkent avtomovil yo\'llarini\nloyihalash, qurish va\nekspluatatsiya institutini\n texnik lug\'ati</string>
+    <string name="loading_text">Malumotlar yuklanmoqda. Iltimos, kutib turing…</string>
+    <string name="search_hint">Izlash</string>
+    <string name="empty_list_text">Ro\'yxat bo\'sh</string>
+    <string name="dictionary">Lug\'at</string>
+    <string name="favourites">Tanlanganlar</string>
+    <string name="share">Ulashish</string>
+    <string name="share_translation">So\'zni ulashish</string>
+    <string name="menu_dictionary">Lug\'at</string>
+    <string name="menu_favorite">Tanlanganlar</string>
+    <string name="menu_history">Tarix</string>
+    <string name="menu_settings">Sozlamalar</string>
+    <string name="menu_about">Dastur haqida</string>
+    <string name="empty_favorite">Tanlanganlar yo\'q</string>
+    <string name="empty_histories_text">Siz hali hech bir so\'zni tarjimasini ko\'rmadingiz</string>
+    <string name="settings">Sozlamalar</string>
+</resources>

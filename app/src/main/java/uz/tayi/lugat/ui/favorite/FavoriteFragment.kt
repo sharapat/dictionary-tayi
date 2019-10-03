@@ -14,13 +14,17 @@ import uz.tayi.lugat.data.Status
 import uz.tayi.lugat.data.local.LugatEntity
 import uz.tayi.lugat.extensions.invisible
 import uz.tayi.lugat.extensions.visible
+import uz.tayi.lugat.ui.favorite.list.FavoritesAdapter
+import uz.tayi.lugat.ui.favorite.list.OnFavoriteItemClickListener
 import uz.tayi.lugat.ui.translation.TranslationActivity
 
-class FavoriteFragment : Fragment(R.layout.fragment_favorites), OnFavoriteItemClickListener {
+class FavoriteFragment : Fragment(R.layout.fragment_favorites),
+    OnFavoriteItemClickListener {
 
     private val viewModel: FavoriteViewModel by viewModel()
 
-    private val adapter: FavoritesAdapter = FavoritesAdapter(this)
+    private val adapter: FavoritesAdapter =
+        FavoritesAdapter(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

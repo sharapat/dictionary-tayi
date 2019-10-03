@@ -3,10 +3,8 @@ package uz.tayi.lugat.ui.translation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_translation.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -44,6 +42,7 @@ class TranslationActivity : AppCompatActivity(), TranslationView {
 
         tvWord.text = word
         tvTranslation.text = translation
+        viewModel.setLastAccessed(System.currentTimeMillis(), word, translation)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

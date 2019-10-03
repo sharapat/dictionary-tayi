@@ -1,6 +1,5 @@
 package uz.tayi.lugat.ui.translation
 
-import uz.tayi.lugat.data.local.LugatDao
 import uz.tayi.lugat.data.local.LugatEntity
 import uz.tayi.lugat.repository.DatabaseQueryRepository
 import uz.tayi.lugat.ui.base.BaseViewModel
@@ -31,5 +30,12 @@ class TranslationViewModel(val databaseQueryRepository: DatabaseQueryRepository)
         model.isFavorite = isFavorite
         databaseQueryRepository.updateData(model)
         view.showFavorite(isFavorite)
+    }
+
+    fun setLastAccessed(time: Long, word: String, translation: String) {
+        model.lastAccessed = time
+        model.word = word
+        model.translation = translation
+        databaseQueryRepository.updateData(model)
     }
 }
