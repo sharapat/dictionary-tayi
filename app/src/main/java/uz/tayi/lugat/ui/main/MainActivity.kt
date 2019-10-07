@@ -2,17 +2,15 @@ package uz.tayi.lugat.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.widget.Toolbar
-import android.view.Menu
 import androidx.fragment.app.Fragment
 import uz.tayi.lugat.R
+import uz.tayi.lugat.ui.about.AboutActivity
 import uz.tayi.lugat.ui.base.BaseActivity
 import uz.tayi.lugat.ui.dictionary.DictionaryFragment
 import uz.tayi.lugat.ui.favorite.FavoriteFragment
@@ -70,13 +68,21 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 finish()
             }
             R.id.nav_about -> {
-
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
             }
         }
         changeFragment(R.id.container, fragment, fragment::class.java.name)
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent != null && intent.getBooleanExtra(SettingsActivity.RECREATE_ACTIVITY, false)) {
+            this.recreate()
+        }
     }
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_language_label">Language</string>
-    <string name="nav_header_title">Technique dictionary of Tashkent institute of design, construction and maintenance of automobile roads</string>
+    <string name="nav_header_title">S.M.Kadirov, O.S.Kadirova\n\nRussian-English-Uzbek technical dictionary (on auto-tractor engines and automotive)</string>
     <string name="loading_text">Loading. Please, wait…</string>
     <string name="search_hint">Search</string>
     <string name="empty_list_text">List is empty</string>

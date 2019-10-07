@@ -6,11 +6,11 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="pref_language_uzbek_cyr" translatable="false">ўз</string>
-    <string name="pref_language_rus" translatable="false">ru</string>
+    <string name="pref_language_rus" translatable="false">nd</string>
     <string name="pref_language_default" translatable="false">@string/pref_language_uzbek_cyr</string>
     <string name="pref_language_key" translatable="false">language_key</string>
-    <string name="pref_language_english" translatable="false">eng</string>
-    <string name="pref_language_uzbek_lat" translatable="false">uz</string>
+    <string name="pref_language_english" translatable="false">aa</string>
+    <string name="pref_language_uzbek_lat" translatable="false">ak</string>
     <string-array name="pref_language_options" translatable="false">
         <item>English</item>
         <item>Русский</item>
@@ -24,8 +24,9 @@
         <item>@string/pref_language_uzbek_lat</item>
     </string-array>
 
+    <string name="about_text" translatable="false">Словарь содержит около 40 000 терминов и понятий на русском, английском и узбекском языках и охватывает следующие разделы автотракторной техники:\n\n\tа) типы, особенности конструкции, агрегаты и дизеля автомобилей и тракторов, а также сельхозмашин, связанных с последними;\n\n\tб) рабочие процессы указанных в п. а) машин и их агрегатов;\n\n\tв) лабораторные и дорожные испытания автомобилей и тракторов, их агрегатов и деталей\n\n\tг) эксплуатация и ремонт автомобилей и тракторов;\n\n\tд) основные материалы, применяемые при производстве, ремонте и эксплуатации автомобилей и тракторов.</string>
     <string name="pref_language_label">Тил</string>
-    <string name="nav_header_title">Тошкент автомобиль йўлларини\nлойиҳалаш, қуриш ва/nэксплуатация институтини/nтехник луғати</string>
+    <string name="nav_header_title">С.М.Кадиров, О.С.Кадирова\n\nРусcча-Инглизча-Ўзбекча техник луғат (авто-трактор двигателлари ва автомобильсозлик бўйича)</string>
     <string name="loading_text">Маълумотлар юкланмоқда. Илтимос кутиб туринг…</string>
     <string name="search_hint">Излаш</string>
     <string name="empty_list_text">Рўйҳат бўш</string>
@@ -41,7 +42,6 @@
     <string name="empty_favorite">Танланганлар йўқ</string>
     <string name="empty_histories_text">Сиз ҳали ҳеч бир сўзни таржимасини кўрмадингиз</string>
     <string name="settings">Созламалар</string>
-
 
 
 </resources>

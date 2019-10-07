@@ -12,8 +12,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.translation.TranslationActivity"
-                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.about.AboutActivity"></activity>
+        <activity
+                android:name=".ui.translation.TranslationActivity"
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".ui.splash.SplashActivity"
                 android:screenOrientation="portrait"
@@ -29,8 +31,7 @@
                 android:name=".ui.main.MainActivity"
                 android:label="@string/app_name"
                 android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"/>
-
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".ui.settings.SettingsActivity"
                 android:screenOrientation="portrait" />
