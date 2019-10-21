@@ -1,6 +1,5 @@
 package uz.tayi.lugat.ui.history
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -22,7 +21,6 @@ class HistoryViewModel(private val databaseQueryRepository: DatabaseQueryReposit
                     historyList.value = Resource.loading()
                 }
                 .subscribe({
-                    Log.d("wordandtranslation", "${it[0].word} ${it[0].translation}")
                     historyList.value = Resource.success(it)
                 }, {
                     historyList.value = Resource.error(it.localizedMessage!!)

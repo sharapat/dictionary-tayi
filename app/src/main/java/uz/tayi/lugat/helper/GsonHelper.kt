@@ -23,7 +23,6 @@ class GsonHelper(private val context: Context) {
                 inputStream.close()
                 json += String(buffer, Charset.forName("UTF-8"))
             }
-            Log.d("resultat", json)
             json
         } catch (ex: IOException) {
             ex.printStackTrace()

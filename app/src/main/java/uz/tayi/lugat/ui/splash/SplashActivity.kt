@@ -34,7 +34,6 @@ class SplashActivity : BaseActivity(), SplashView {
             when(it?.status) {
                 Status.ERROR -> {
                     toast(it.message)
-                    Log.d("qatelik", it.message!!)
                 }
                 Status.SUCCESS -> {
                     goToMainScreen()
