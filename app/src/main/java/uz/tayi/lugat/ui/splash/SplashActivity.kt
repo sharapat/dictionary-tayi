@@ -39,7 +39,7 @@ class SplashActivity : BaseActivity(), SplashView {
                     goToMainScreen()
                 }
                 else -> {
-                    loadingProgress.visible()
+
                 }
             }
         })

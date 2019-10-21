@@ -7,83 +7,68 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.preference.PreferenceManager
 import java.util.*
-import android.util.Log
-import android.content.ContextWrapper
-import android.os.LocaleList
 import uz.tayi.lugat.R
-import uz.tayi.lugat.extensions.language
 
 object LocaleHelper {
 
-    private val SELECTED_LANGUAGE = "language_list"
-
-    fun setLocale(context: Context, language: String): Context {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return updateResources(context, language)
-        }
-
-        return updateResourcesLegacy(context, language)
+    fun onAttach(context: Context): Context {
+        return setLocale(context, getLanguage(context))
     }
 
-    private fun getPersistedData(context: Context, defaultLanguage: String): String {
+    private fun getLanguage(context: Context): String? {
+        return getPersistedData(context, context.getString(R.string.pref_language_default))
+    }
+
+    fun setLocale(context: Context, language: String?): Context {
+        persist(context, language)
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            updateResources(context, language)
+        } else updateResourcesLegacy(context, language)
+
+    }
+
+    private fun getPersistedData(context: Context, defaultLanguage: String): String? {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.language() ?: defaultLanguage
+        return preferences.getString(context.getString(R.string.pref_language_key), defaultLanguage)
     }
 
+    private fun persist(context: Context, language: String?) {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor = preferences.edit()
+
+        editor.putString(context.getString(R.string.pref_language_key), language)
+        editor.apply()
+    }
 
     @TargetApi(Build.VERSION_CODES.N)
-    private fun updateResources(context: Context, language: String): Context {
-        val locale = Locale(language)
+    private fun updateResources(context: Context, language: String?): Context {
+        val locale = Locale(language!!)
         Locale.setDefault(locale)
+
+        val resources = context.resources
 
         val configuration = context.resources.configuration
         configuration.setLocale(locale)
         configuration.setLayoutDirection(locale)
-        context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
+
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
         return context.createConfigurationContext(configuration)
     }
 
-    private fun updateResourcesLegacy(context: Context, language: String): Context {
-        val locale = Locale(language)
+    private fun updateResourcesLegacy(context: Context, language: String?): Context {
+        val locale = Locale(language!!)
         Locale.setDefault(locale)
 
         val resources = context.resources
 
         val configuration = resources.configuration
-        configuration.setLayoutDirection(locale)
         configuration.locale = locale
+        configuration.setLayoutDirection(locale)
+
         resources.updateConfiguration(configuration, resources.displayMetrics)
 
         return context
-    }
-
-    fun getLanguageType(context: Context): Locale? {
-        Log.i("=======", "context = $context")
-        return Locale(getPersistedData(context, context.resources.getString(R.string.pref_language_default)))
-
-    }
-
-    fun wrap(c: Context, newLocale: Locale?): ContextWrapper {
-        var context = c
-        val res = context.resources
-        val configuration = res.configuration
-
-        context = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            configuration.setLocale(newLocale)
-
-            val localeList = LocaleList(newLocale)
-            LocaleList.setDefault(localeList)
-            configuration.setLocales(localeList)
-
-            context.createConfigurationContext(configuration)
-
-        } else {
-            configuration.setLocale(newLocale)
-            context.createConfigurationContext(configuration)
-
-        }
-
-        return ContextWrapper(context)
     }
 }

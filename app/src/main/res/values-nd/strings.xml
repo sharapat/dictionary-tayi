@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Словарь</string>
     <string name="pref_language_label">Язык</string>
     <string name="nav_header_title">С.М.Кадиров, О.С.Кадирова\n\nРусско-Английский-Узбекский технический словар (по авто-тракторными двигателями и по автомобилестроению)</string>
     <string name="loading_text">Загружается. Пожалуйста, подаждите…</string>

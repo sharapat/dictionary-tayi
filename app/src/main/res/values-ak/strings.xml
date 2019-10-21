@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Lug‘at</string>
     <string name="pref_language_label">Til</string>
     <string name="nav_header_title">S.M.Kadirov, O.S.Kadirova\n\nRuscha-Inglizcha-O\'zbekcha texnik lug\'at (avto-traktor dvigatellari va avtomobilsozlik bo\'yicha)</string>
     <string name="loading_text">Malumotlar yuklanmoqda. Iltimos, kutib turing…</string>
